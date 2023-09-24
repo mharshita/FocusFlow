@@ -1,5 +1,9 @@
-function instagram() {
-    window.location.replace("https://www.readsomethinggreat.com");
-}
+chrome.runtime.onInstalled.addListener(function () {
+  // Redirect to index.html when the extension is installed or updated
+  chrome.tabs.create({ url: chrome.runtime.getURL("index.html") });
+});
 
-instagram();
+chrome.action.onClicked.addListener(function (tab) {
+  // Redirect to index.html when the extension icon is clicked
+  chrome.tabs.create({ url: "index.html" });
+});
