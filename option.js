@@ -23,7 +23,7 @@ popup.style.width = "50vw";
 popup.style.height = "50vh";
 
 popup.innerHTML =
-  "<p>This site is blocked by Social Media Detox extension</p>" +
+  "<p>This site is blocked by Focus Flow extension</p>" +
   "<p>Want to read something instead?</p>" +
   '<a style="color: blue" href="https://www.readsomethinggreat.com">Yes!</a>';
 
