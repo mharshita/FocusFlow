@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Social Media Detox",
+    "name": "Focus Flow",
     "description": "This chrome extension helps you to detox from social media by redirecting to another page whenever you open instagram/twitter. In future it's gonna have a lot of features.",
     "version": "1.0",
     "author": "Harshita Mangla",
