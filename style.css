@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    padding: 4em;
+}
+
+.body-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    width: 8%;
+    background: grey;
+    height: 80vh;
+    list-style: none;
+    flex-direction: column;
+    font-size: 1.5em;
+    text-align: center;
+    padding: 0.5em;
+    justify-content: initial;
+    gap: 2em;
+}
+
+nav button {
+    background: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+.screen-content {
+    width: 80%;
+    min-height: 65vh;
+    font-size: 1.5em;
+}
+
+nav li {
+    flex-grow: 1;
+    flex-shrink: 1;
+    cursor: pointer;
+}
