@@ -27,6 +27,19 @@ function updateBlockedWebsiteUi(blockedWebsitesArray) {
   }
 }
 
+function checkValidURL(str) {
+  var urlPattern = new RegExp(
+    "^(https?:\\/\\/)?" + // validate protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+      "(\\#[-a-z\\d_]*)?$",
+    "i"
+  ); // validate fragment locator
+  return !!urlPattern.test(str);
+}
+
 window.onload = function () {
   navigation();
 
@@ -63,12 +76,19 @@ blockBtn.addEventListener("click", (e) => {
 });
 
 websiteInputBtn.addEventListener("click", (e) => {
-  //TODO: Do the following:
-  //If website is invalid show error
-  // If website is valid add the website in the array that contains blocked website in the storage
-  // add the website in the accepted format
-  blockedWebsitesArray.push(websiteInput.value);
-  chrome.storage.local.set({ focus_flow_blocked: blockedWebsitesArray });
-  updateBlockedWebsiteUi(blockedWebsitesArray);
-  websiteInput.value = "";
+  let substr = websiteInput.value.substring(0, 4);
+  let temp = websiteInput.value;
+
+  if (substr != "http") {
+    temp = "https://" + websiteInput.value;
+  }
+
+  if (checkValidURL(temp)) {
+    blockedWebsitesArray.push(websiteInput.value);
+    chrome.storage.local.set({ focus_flow_blocked: blockedWebsitesArray });
+    updateBlockedWebsiteUi(blockedWebsitesArray);
+    websiteInput.value = "";
+  } else {
+    alert("invalid URL");
+  }
 });
