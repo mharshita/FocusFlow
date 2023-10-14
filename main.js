@@ -17,13 +17,58 @@ function navigation() {
   }
 }
 
+function handleDelete(index) {
+  blockedWebsitesArray.splice(index, 1);
+  chrome.storage.local.set({ focus_flow_blocked: blockedWebsitesArray });
+  updateBlockedWebsiteUi(blockedWebsitesArray);
+}
+
+function isWebsiteRepeated(website, array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === website) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+function addRowStyle(ele) {
+  ele.style.display = "flex";
+  ele.style.width = "60%";
+  ele.style.justifyContent = "space-between";
+  ele.style.marginTop = "10px";
+}
+
+function addButtonStyle(ele) {
+  ele.style.outline = "none";
+  ele.style.background = "inherit";
+  ele.style.border = "none";
+  ele.style.cursor = "pointer";
+  ele.style.fontSize = "18px";
+}
+
 function updateBlockedWebsiteUi(blockedWebsitesArray) {
   blockedWebsites.innerHTML = "";
 
   for (let i = 0; i < blockedWebsitesArray.length; i++) {
-    var pElement = document.createElement("p");
+    let divElement = document.createElement("div");
+    addRowStyle(divElement);
+
+    let pElement = document.createElement("p");
     pElement.textContent = blockedWebsitesArray[i];
-    blockedWebsites.appendChild(pElement);
+
+    let buttonElement = document.createElement("button");
+    buttonElement.textContent = "X";
+    buttonElement.addEventListener("click", (e) => {
+      handleDelete(i);
+    });
+    addButtonStyle(buttonElement);
+
+    divElement.appendChild(pElement);
+    divElement.appendChild(buttonElement);
+
+    blockedWebsites.appendChild(divElement);
   }
 }
 
@@ -77,16 +122,22 @@ blockBtn.addEventListener("click", (e) => {
 
 websiteInputBtn.addEventListener("click", (e) => {
   let substr = websiteInput.value.substring(0, 4);
+  let sub = websiteInput.value.substring(0, 3);
+
   let temp = websiteInput.value;
 
-  if (substr != "http") {
+  if (substr !== "http" && sub !== "www") {
     temp = "https://" + websiteInput.value;
   }
 
   if (checkValidURL(temp)) {
-    blockedWebsitesArray.push(websiteInput.value);
-    chrome.storage.local.set({ focus_flow_blocked: blockedWebsitesArray });
-    updateBlockedWebsiteUi(blockedWebsitesArray);
+    if (isWebsiteRepeated(websiteInput.value, blockedWebsitesArray)) {
+      alert("Website Already Exists");
+    } else {
+      blockedWebsitesArray.push(temp);
+      chrome.storage.local.set({ focus_flow_blocked: blockedWebsitesArray });
+      updateBlockedWebsiteUi(blockedWebsitesArray);
+    }
     websiteInput.value = "";
   } else {
     alert("invalid URL");

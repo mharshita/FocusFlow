@@ -1,3 +1,5 @@
+//*: This file handles the basic functionalities of the chrome extension
+
 chrome.runtime.onInstalled.addListener(function () {
   // Redirect to index.html when the extension is installed or updated
   chrome.tabs.create({ url: chrome.runtime.getURL("index.html") });

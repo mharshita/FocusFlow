@@ -1,3 +1,5 @@
+//*: This file adds a popup to the blocked websites. It is added in the manifest.json
+
 //*: Nice to have: add keyboard shortcuts also that would prevent the user from doing inspect element.
 
 var popupContainer = document.createElement("div");
