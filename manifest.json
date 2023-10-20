@@ -10,7 +10,9 @@
     ],
     "content_scripts": [
         {
-            "matches": ["*://*.instagram.com/*", "*://*.twitter.com/*", "*://*.x.com/*"],
+            "matches": [
+                "<all_urls>"
+            ],
             "js": [
                 "option.js"
             ]

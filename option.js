@@ -30,11 +30,39 @@ popup.innerHTML =
   '<a style="color: blue" href="https://www.readsomethinggreat.com">Yes!</a>';
 
 popupContainer.appendChild(popup);
-document.body.appendChild(popupContainer);
 
-document.body.style.overflow = "hidden";
+// do changes to document only if current url matches the added url
 
-// This is to prevent the user from doing inspect element using right-click
-document.addEventListener("contextmenu", (e) => {
-  e.preventDefault();
+chrome.storage.local.get(["focus_flow_blocked"]).then((result) => {
+  
+    const blockedWebsite = result.focus_flow_blocked;
+
+    for(let i=0; i < blockedWebsite.length; i += 1) {
+      let sub = blockedWebsite[i].substr(0, 3);
+
+      let url;
+      let hostname;
+      let origin;
+
+      if (sub !== "www") {
+        url = new URL(blockedWebsite[i]);
+        hostname = "www." + url.hostname;
+        origin = url.origin;
+      } else {
+        hostname = blockedWebsite[i];
+      }
+
+      if (
+        window.location.hostname === hostname ||
+        window.location.origin === origin
+      ) {
+        document.body.appendChild(popupContainer);
+        document.body.style.overflow = "hidden";
+
+        // This is to prevent the user from doing inspect element using right-click
+        document.addEventListener("contextmenu", (e) => {
+          e.preventDefault();
+        });
+      }
+    }
 });
