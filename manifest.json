@@ -5,11 +5,14 @@
     "version": "1.0",
     "author": "Harshita Mangla",
     "permissions": [
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "content_scripts": [
         {
-            "matches": ["*://*.instagram.com/*", "*://*.twitter.com/*", "*://*.x.com/*"],
+            "matches": [
+                "<all_urls>"
+            ],
             "js": [
                 "option.js"
             ]
