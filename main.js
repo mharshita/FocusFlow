@@ -1,21 +1,7 @@
-const blockBtn = document.getElementById("blockBtn");
-const redirectBtn = document.getElementById("redirectBtn");
-const block = document.getElementById("block");
-const redirect = document.getElementById("redirect");
 const websiteInput = document.getElementById("websiteInput");
 const websiteInputBtn = document.getElementById("websiteInputBtn");
 const blockedWebsites = document.getElementById("blockedWebsites");
 var blockedWebsitesArray = [];
-
-function navigation() {
-  if (
-    window.location.href ===
-    "chrome-extension://jfdpfbllhnkbnhldhiagbjjpdkgkgpim/index.html"
-  ) {
-    redirect.style.display = "none";
-    block.style.display = "block";
-  }
-}
 
 function handleDelete(index) {
   blockedWebsitesArray.splice(index, 1);
@@ -86,8 +72,6 @@ function checkValidURL(str) {
 }
 
 window.onload = function () {
-  navigation();
-
   //check if the key focus_flow_blocked is present in the chrome storage api or not
   //if it is not present then initialize the key with an empty array
   chrome.storage.local.get("focus_flow_blocked", function (result) {
@@ -109,16 +93,6 @@ window.onload = function () {
     }
   });
 };
-
-redirectBtn.addEventListener("click", (e) => {
-  block.style.display = "none";
-  redirect.style.display = "block";
-});
-
-blockBtn.addEventListener("click", (e) => {
-  redirect.style.display = "none";
-  block.style.display = "block";
-});
 
 websiteInputBtn.addEventListener("click", (e) => {
   let substr = websiteInput.value.substring(0, 4);
