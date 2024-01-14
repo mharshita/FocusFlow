@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Focus Flow</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="body-content">
-            <div class="screen-content">
-                <div id="block" class="screen">
-                    <input type="text" id="websiteInput" />
-                    <button type="submit" id="websiteInputBtn">Submit</button>
-                    <div id="blockedWebsites"></div>
-                </div>
-            </div>
-        </div>
-        <script src="./main.js" defer></script>
-    </body>
+  <head>
+    <title>Focus Flow</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="block" class="screen">
+      <div class="input-container">
+        <input type="text" id="websiteInput" class="website-input" />
+        <button type="submit" id="websiteInputBtn" class="submit-btn">
+          Submit
+        </button>
+      </div>
+      <div id="blockedWebsites"></div>
+    </div>
+    <script src="./main.js" defer></script>
+  </body>
 </html>

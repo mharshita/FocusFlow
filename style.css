@@ -1,46 +1,39 @@
 body {
     margin: 0;
-    padding: 4em;
+    overflow: hidden;
 }
 
-.body-content {
-    display: flex;
-    justify-content: space-between;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    width: 8%;
-    background: grey;
-    height: 80vh;
-    list-style: none;
-    flex-direction: column;
-    font-size: 1.5em;
+.screen {
+    padding: 2em;
+    justify-content: center;
     text-align: center;
-    padding: 0.5em;
-    justify-content: initial;
-    gap: 2em;
-}
-
-nav button {
-    background: inherit;
-    cursor: pointer;
-    border: none;
-}
-
-.screen-content {
-    width: 80%;
-    min-height: 65vh;
+    min-height: 90vh;
+    width: 100%;
     font-size: 1.5em;
 }
 
-nav li {
-    flex-grow: 1;
-    flex-shrink: 1;
-    cursor: pointer;
+.input-container {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+}
+
+.website-input {
+    width: 50%;
+    height: 100%;
+    font-size: 1em;
+    padding: 0.3em;
+    outline: none;
 }
 
 #websiteInputBtn {
     cursor: pointer;
+    padding: 0.6em;
+}
+
+#blockedWebsites {
+    width: 95%;
+    justify-content: center;
+    text-align: center;
+    margin-top: 1.6em;
 }
