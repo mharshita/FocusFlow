@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
+    background: radial-gradient(circle farthest-corner at 50% -87%, rgba(255,92,10,1) 0%, rgba(247, 240, 240, 1) 50%, rgba(247, 240, 240, 1) 100%);
 }
 
 .screen {
@@ -8,6 +9,7 @@ body {
     justify-content: center;
     text-align: center;
     min-height: 90vh;
+    height: 100%;
     width: 100%;
     font-size: 1.5em;
 }
@@ -31,9 +33,18 @@ body {
     padding: 0.6em;
 }
 
-#blockedWebsites {
+.blocked-website-container {
+    margin-top: 2em;
+    justify-content: center;
+    text-align: center;
     width: 95%;
     justify-content: center;
     text-align: center;
-    margin-top: 1.6em;
+}
+
+#blockedWebsites {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

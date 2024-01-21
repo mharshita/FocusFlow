@@ -26,6 +26,9 @@ function addRowStyle(ele) {
   ele.style.justifyContent = "space-between";
   ele.style.marginTop = "10px";
   ele.style.marginBottom = "10px";
+  ele.style.paddingRight = "20px";
+  ele.style.borderRadius = "6px";
+  ele.style.backgroundColor = "rgb(255, 174, 133)";
 }
 
 function addButtonStyle(ele) {
