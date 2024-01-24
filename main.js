@@ -21,9 +21,14 @@ function isWebsiteRepeated(website, array) {
 
 function addRowStyle(ele) {
   ele.style.display = "flex";
-  ele.style.width = "60%";
+  ele.style.width = "30%";
+  ele.style.paddingLeft = "2em";
   ele.style.justifyContent = "space-between";
   ele.style.marginTop = "10px";
+  ele.style.marginBottom = "10px";
+  ele.style.paddingRight = "20px";
+  ele.style.borderRadius = "6px";
+  ele.style.backgroundColor = "rgb(255, 174, 133)";
 }
 
 function addButtonStyle(ele) {
@@ -60,20 +65,20 @@ function updateBlockedWebsiteUi(blockedWebsitesArray) {
 
 function checkValidURL(str) {
   var urlPattern = new RegExp(
-    "^(https?:\\/\\/)?" + // validate protocol
-      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + // validate domain name
-      "((\\d{1,3}\\.){3}\\d{1,3}))" + // validate OR ip (v4) address
-      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + // validate port and path
-      "(\\?[;&a-z\\d%_.~+=-]*)?" + // validate query string
+    "^(https?:\\/\\/)?" + //* validate protocol
+      "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" + //* validate domain name
+      "((\\d{1,3}\\.){3}\\d{1,3}))" + //* validate OR ip (v4) address
+      "(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*" + //* validate port and path
+      "(\\?[;&a-z\\d%_.~+=-]*)?" + //* validate query string
       "(\\#[-a-z\\d_]*)?$",
     "i"
-  ); // validate fragment locator
+  ); //* validate fragment locator
   return !!urlPattern.test(str);
 }
 
 window.onload = function () {
-  //check if the key focus_flow_blocked is present in the chrome storage api or not
-  //if it is not present then initialize the key with an empty array
+  //* check if the key focus_flow_blocked is present in the chrome storage api or not
+  //* if it is not present then initialize the key with an empty array
   chrome.storage.local.get("focus_flow_blocked", function (result) {
     if (chrome.runtime.lastError) {
       console.error(chrome.runtime.lastError);

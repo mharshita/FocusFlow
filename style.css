@@ -1,46 +1,64 @@
 body {
     margin: 0;
-    padding: 4em;
+    overflow-x: hidden;
+    /* background: radial-gradient(circle farthest-corner at 50% -87%, rgba(255,92,10,1) 0%, rgba(247, 240, 240, 1) 50%, rgba(247, 240, 240, 1) 100%); */
+    background-color: rgba(247, 240, 240, 1);
 }
 
-.body-content {
-    display: flex;
-    justify-content: space-between;
-}
-
-nav {
-    display: flex;
-    flex-wrap: wrap;
-    width: 8%;
-    background: grey;
-    height: 80vh;
-    list-style: none;
-    flex-direction: column;
-    font-size: 1.5em;
+.screen {
+    padding: 2em;
+    justify-content: center;
     text-align: center;
-    padding: 0.5em;
-    justify-content: initial;
-    gap: 2em;
-}
-
-nav button {
-    background: inherit;
-    cursor: pointer;
-    border: none;
-}
-
-.screen-content {
-    width: 80%;
-    min-height: 65vh;
+    min-height: 90vh;
+    height: 100%;
+    width: 100%;
     font-size: 1.5em;
 }
 
-nav li {
-    flex-grow: 1;
-    flex-shrink: 1;
-    cursor: pointer;
+.input-container {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: rgba(247, 240, 240, 1);
+}
+
+.website-input {
+    width: 50%;
+    height: 100%;
+    font-size: 1em;
+    padding: 0.3em;
+    outline: none;
+    border-radius: 6px;
+    border: 1px solid black;
 }
 
 #websiteInputBtn {
     cursor: pointer;
+    padding: 0.6em;
+    border: none;
+    margin-left: 12px;
+    background-color: rgba(255,92,10,1);
+    color: white;
+    border-radius: 6px;
+}
+
+.blocked-website-container {
+    margin-top: 4em;
+    justify-content: center;
+    text-align: center;
+    width: 95%;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+#blockedWebsites {
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
