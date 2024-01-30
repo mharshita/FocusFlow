@@ -26,7 +26,7 @@ popup.style.height = "8vh";
 popup.style.alignContent = "center";
 popup.style.fontSize = "2em";
 
-popup.innerHTML = "<p>This site is blocked by Focus Flow extension</p>";
+popup.innerHTML = "<p>This page is blocked by Focus Flow extension</p>";
 
 // Todo: think of something interesting to add in here.
 // +
