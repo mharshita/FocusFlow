@@ -15,18 +15,18 @@ popupContainer.style.alignItems = "center";
 popupContainer.style.zIndex = "9999";
 
 var popup = document.createElement("div");
-popup.style.backgroundColor = "#fff";
-popup.style.padding = "10px";
+popup.style.backgroundColor = "transparent";
+popup.style.padding = "3em";
 popup.style.borderRadius = "5px";
 popup.style.boxShadow = "0 2px 10px rgba(0, 0, 0, 0.2)";
 popup.style.textAlign = "center";
-popup.style.color = "#000";
+popup.style.color = "#fff";
 popup.style.width = "50vw";
 popup.style.height = "8vh";
 popup.style.alignContent = "center";
-popup.style.fontSize = "1.5em";
+popup.style.fontSize = "2em";
 
-popup.innerHTML = "<p>This site is blocked by Focus Flow extension</p>";
+popup.innerHTML = "<p>This page is blocked by Focus Flow extension</p>";
 
 // Todo: think of something interesting to add in here.
 // +
