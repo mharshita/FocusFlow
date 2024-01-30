@@ -15,15 +15,34 @@ body {
     font-size: 1.5em;
 }
 
-.input-container {
-    display: flex;
-    width: 95%;
-    justify-content: center;
+.topbar {
     position: fixed;
     top: 0;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    width: 95%;
+    padding-top: 15px;
+    padding-bottom: 15px;
     background-color: rgba(247, 240, 240, 1);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    padding: 0;
+}
+
+/* .navbar h3 {
+    margin-left: 5px;
+} */
+
+.input-container {
+    display: flex;
+    justify-content: center;
 }
 
 .website-input {
@@ -47,7 +66,7 @@ body {
 }
 
 .blocked-website-container {
-    margin-top: 4em;
+    margin-top: 7em;
     justify-content: center;
     text-align: center;
     width: 95%;
